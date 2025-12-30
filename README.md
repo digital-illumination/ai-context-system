@@ -25,7 +25,7 @@ This pattern maximises adoption and tool compatibility:
 1) Add as a submodule
 
 ```bash
-git submodule add <git-url> .context
+git submodule add https://github.com/digital-illumination/ai-context-system.git .context
 ```
 
 2) Copy the context into the project root
