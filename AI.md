@@ -8,9 +8,9 @@
 
 | | |
 |---|---|
-| **Project** | VenturEd Solutions Salesforce |
-| **Client** | VenturEd Solutions (Education sector) |
-| **Environment** | Salesforce Sandbox (UAT Edu) |
+| **Project** | Altia Intel Salesforce |
+| **Client** | Altia Intel (Investigation Software Solutions) |
+| **Environment** | Salesforce Production |
 | **Stack** | Apex, LWC, Flows, SFDX |
 
 ---

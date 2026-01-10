@@ -1,14 +1,14 @@
 # Architecture
 
-This document describes the technical architecture and system design for the VenturEd Solutions Salesforce project.
+This document describes the technical architecture and system design for the Altia Intel Salesforce project.
 
 ---
 
 ## System Overview
 
 **Platform:** Salesforce (Lightning Experience)  
-**Environment:** Sandbox (UAT Edu)  
-**Org Type:** Education Cloud
+**Environment:** Production  
+**Org Type:** Sales Cloud
 
 ---
 
@@ -56,7 +56,7 @@ force-app/
 
 ### Core Objects
 - Standard Salesforce objects (Account, Contact, Opportunity, etc.)
-- Custom objects as needed for education sector
+- Custom objects as needed for investigation software sales
 
 ---
 

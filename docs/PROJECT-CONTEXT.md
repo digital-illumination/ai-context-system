@@ -10,10 +10,10 @@ This document provides comprehensive context about the repository. Read this whe
 
 | | |
 |---|---|
-| **Name** | VentureEd Solutions Salesforce |
-| **Repository** | VentureEdSolutionsSandboxUatEdu |
-| **Client** | VenturEd Solutions |
-| **Sector** | Education Technology |
+| **Name** | Altia Intel Salesforce |
+| **Repository** | altia-intel-salesforce |
+| **Client** | Altia Intel |
+| **Sector** | Investigation Software Solutions |
 | **Platform** | Salesforce (Lightning Experience) |
 | **API Version** | 64.0 |
 
@@ -21,12 +21,12 @@ This document provides comprehensive context about the repository. Read this whe
 
 ## Business Context
 
-VenturEd Solutions operates in the education sector, managing relationships with schools, educational institutions, and related contacts. The Salesforce org serves as their CRM for:
+Altia Intel provides investigation software solutions that empower organisations to make the world a safer place. Their product suite includes Financial Investigator, Insight Case Management, OSINTInvestigator, and Altia HQ — serving law enforcement, financial crime investigators, and operational teams. The Salesforce org serves as their CRM for:
 
-- **Lead Management** — Tracking prospective schools/institutions
-- **Account Management** — Managing school accounts and relationships
-- **Contact Management** — School administrators, decision-makers
-- **Opportunity Tracking** — Sales pipeline for education services
+- **Lead Management** — Tracking prospective clients (government agencies, law enforcement, financial institutions)
+- **Account Management** — Managing client accounts and relationships
+- **Contact Management** — Decision-makers and stakeholders at client organisations
+- **Opportunity Tracking** — Sales pipeline for investigation software solutions
 
 ---
 
@@ -132,9 +132,9 @@ Quick reference for the most important components:
 ## Data Model Highlights
 
 ### Core Objects
-- **Account** — Schools and educational institutions
-- **Contact** — School administrators, staff
-- **Lead** — Prospective institutions
+- **Account** — Client organisations (government, law enforcement, financial institutions)
+- **Contact** — Decision-makers and stakeholders
+- **Lead** — Prospective clients
 - **Opportunity** — Sales pipeline
 
 ### Custom Fields of Note
@@ -153,7 +153,7 @@ Quick reference for the most important components:
 | System | Purpose | Data Flow | Auth Type | Owner | Status |
 |--------|---------|-----------|-----------|-------|--------|
 | **Intacct** | Financial/accounting sync | Accounts with `IntacctId` → Intacct | API Key *(Assumption: standard Intacct auth)* | Finance team *(Assumption: owns financial systems)* | Active |
-| **Experience Cloud** | Community portal | Users ↔ Salesforce | OAuth/SAML *(inferred)* | VenturEd IT *(Assumption: IT owns community)* | Active *(inferred from controllers)* |
+| **Experience Cloud** | Community portal | Users ↔ Salesforce | OAuth/SAML *(inferred)* | Altia Intel IT *(Assumption: IT owns community)* | Active *(inferred from controllers)* |
 
 ### Integration Notation Guide
 
@@ -189,7 +189,7 @@ Use these markers when documenting integrations:
 
 ### Authentication
 ```bash
-sf org login web --alias VentureEdSandbox --instance-url https://test.salesforce.com
+sf org login web --alias AltiaProduction --instance-url https://login.salesforce.com
 ```
 
 ---
@@ -217,10 +217,10 @@ Critical rules that must be respected:
 
 | Rule | Description | Enforcement |
 |------|-------------|-------------|
-| **School Admin Protection** | Contacts who are school administrators must not be deleted even if inactive | Manual review required |
+| **Key Contact Protection** | Contacts who are primary decision-makers must not be deleted even if inactive | Manual review required |
 | **IntacctId Linkage** | Accounts with `IntacctId` field populated sync to Intacct financial system | Don't delete; check before bulk updates |
 | **No Bulk Deletes** | Use staged deletion: flag → review → archive → delete | Always flag first |
-| **Data Retention** | Education sector may have compliance requirements | Consult before purging |
+| **Data Retention** | Investigation sector may have compliance requirements | Consult before purging |
 
 ---
 
